@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Natalia Sánchez</title>
+{% endblock %}
+
+{% block background %} {% static 'core/img/home-bg.jpg' %} {% endblock %}
+
+{{ persona }}
+
+{% block content %}
+    {% for persona in personas %}
+        <div class="container">
+            <div class="row project">
+                <div class="col-lg-3 col-md-4 offset-lg-1">
+                </div>
+
+                <div class="col-lg-7 col-md-8">
+                    <h2 class="section-heading title">
+                        {{ persona.nombres }} {{ persona.apellidos }}
+                    </h2>
+
+                    <p><b>Dirección:</b> {{ persona.direccion }}</p>
+                    <p><b>Teléfono:</b> {{ persona.telefono }}</p>
+                    <p><b>Título:</b> {{ persona.titulo_academico }}</p>
+                    <p><b>Biografía:</b> {{ persona.biografia }}</p>
+                    <p><b>Correo:</b> {{ persona.correo_electronico }}</p>
+                    <p><b>Dedicación:</b> {{ persona.dedicacion }}</p>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p class="text-center">Todavía no hay datos registrados</p>
+    {% endfor %}
+{% endblock %}
